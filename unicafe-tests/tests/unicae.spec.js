@@ -8,3 +8,8 @@ test('feedback buttons are visible', async ({ page }) => {
     await expect(page.getByRole('button', { name: 'bad' })).toBeVisible()
 })
 
+test('statistics show "No feedback given" initially', async ({ page }) => {
+    await page.goto('http://localhost:5173')
+    await expect(page.getByText('No feedback given')).toBeVisible()
+})
+
