@@ -4,7 +4,7 @@ test('feedback buttons are visible', async ({ page }) => {
     await page.goto('/')
     await expect(page.getByText('give feedback')).toBeVisible()
     await expect(page.getByRole('button', { name: 'good' })).toBeVisible()
-    await expect(page.getByRole('botton', { name: 'neutral' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'neutral' })).toBeVisible()
     await expect(page.getByRole('button', { name: 'bad' })).toBeVisible()
 })
 
