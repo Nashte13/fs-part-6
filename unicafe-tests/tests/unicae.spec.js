@@ -20,3 +20,10 @@ test('clicking good increases statistics', async ({ page }) => {
     await expect(page.getByText('1')).toBeVisible()
 })
 
+test('clicking neutral and bad updates statistics', async ({ page }) => {
+    await page.goto('http://localhost:5173')
+    await page.getByRole('button', { name: 'neutral' }).click()
+    await page.getByRole('button', { name: 'bad' }).click()
+    await expect(page.getByText('neutral')).toBeVisible()
+    await expect(page.getByText('bad')).toBeVisible()
+})
