@@ -6,6 +6,15 @@ import { useAnecdoteStore } from './store';
 import anecdoteService from './services/anecdotes'
 
 const App = () => {
+  const setAnecdotes = useAnecdoteStore((state) => state.actions.setAnecdotes)
+
+  useEffect(() => {
+    anecdoteService.getAll()
+      .then((data) => setAnecdotes(data))
+      .catch((error) => {
+        console.error('Error fetching anecdotes:', error)
+      })
+  }, [setAnecdotes])
 
   return (
     <div>
