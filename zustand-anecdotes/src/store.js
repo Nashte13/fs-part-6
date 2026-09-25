@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import anecdoteService from './services/anecdotes'
+import anecdoteService from "./services/anecdotes";
 
 export const useAnecdoteStore = create((set) => ({
   anecdotes: [],
@@ -13,10 +13,10 @@ export const useAnecdoteStore = create((set) => ({
         ),
       })),
     add: async (content) => {
-      const newAnecdote = await anecdoteService.createNew(content)
+      const newAnecdote = await anecdoteService.createNew(content);
 
       set((state) => ({
-        anecdotes: state.anecdotes.concat({ newAnecdote }),
+        anecdotes: state.anecdotes.concat(newAnecdote),
       }));
     },
 
