@@ -4,8 +4,13 @@ const AnecdoteList = () => {
     const {anecdotes, actions, filter} = useAnecdoteStore()
 
     //apply filter
-    const filtered = anecdotes.filter(a => 
-        a.content.toLowerCase().includes(filter.toLowerCase())
+    const query = (filter ?? '').toLowerCase()
+
+    const filtered = anecdotes.filter(
+        a =>
+            a &&
+            typeof a.content === 'string' &&
+            a.content.toLowerCase().includes(query)
     )
 
   
