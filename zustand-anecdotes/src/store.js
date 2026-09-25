@@ -4,6 +4,7 @@ export const useAnecdoteStore = create((set) => ({
   anecdotes: [],
   filter: "",
   actions: {
+    setAnecdotes: (anecdotes) => set({ anecdotes }),
     vote: (id) =>
       set((state) => ({
         anecdotes: state.anecdotes.map((a) =>
