@@ -44,6 +44,11 @@
       "content": "Vibecoding is appearingto be the be the new way to create softwares and applications",
       "votes": 0,
       "id": "61Hr-Wh4F6E"
+    },
+    {
+      "content": "Logical thinking should be prioritised",
+      "votes": 0,
+      "id": "C9i7Znw_G_0"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
