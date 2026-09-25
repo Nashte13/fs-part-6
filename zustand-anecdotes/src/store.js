@@ -6,10 +6,10 @@ export const useAnecdoteStore = create((set) => ({
   filter: "",
   actions: {
     setAnecdotes: (anecdotes) => set({ anecdotes }),
-    
+
     vote: async (id) => {
       set((state) => {
-        const anecdote = state.anecdotes.fid((a) => String(a.id) === String(id))
+        const anecdote = state.anecdotes.find((a) => String(a.id) === String(id))
 
         if (!anecdote) {
           return state
