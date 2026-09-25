@@ -3,10 +3,15 @@ import { useAnecdoteStore } from "../store";
 const AnecdoteForm = () => {
   const { actions } = useAnecdoteStore();
 
-  const addAnecdote = (e) => {
+  const addAnecdote = async (e) => {
     e.preventDefault();
-    const content = e.target.anecdote.value;
-    actions.add(content);
+    const content = e.target.anecdote.value.trim();
+
+    if (!content) {
+      return;
+    }
+
+    await actions.add(content);
     e.target.reset();
   };
 
