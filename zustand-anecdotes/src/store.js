@@ -6,6 +6,7 @@ export const useAnecdoteStore = create((set) => ({
   filter: "",
   actions: {
     setAnecdotes: (anecdotes) => set({ anecdotes }),
+    
     vote: async (id) => {
       set((state) => {
         const anecdote = state.anecdotes.fid((a) => String(a.id) === String(id))
@@ -41,6 +42,7 @@ export const useAnecdoteStore = create((set) => ({
         ),
       }))
     },
+
     add: async (content) => {
       const newAnecdote = await anecdoteService.createNew(content);
 
