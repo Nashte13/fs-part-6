@@ -11,12 +11,13 @@ export const useAnecdoteStore = create((set) => ({
           a.id === id ? { ...a, votes: a.votes + 1 } : a,
         ),
       })),
-    add: (content) =>
+    add: async (content) =>
       set((state) => {
-        const newId = Date.now();
-        return {
-          anecdotes: state.anecdotes.concat({ id: newId, content, votes: 0 }),
-        };
+        const newAnecdote = await anecdoteService.createNew(content)
+
+        set((state) => ({
+          anecdotes: state.anecdotes.concat({ newAnecdote }),
+        }))
       }),
     setFilter: (filter) => set({ filter }),
   },
