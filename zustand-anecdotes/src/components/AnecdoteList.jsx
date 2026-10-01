@@ -1,4 +1,5 @@
 import { useAnecdoteStore } from '../store'
+import showNotification from '../notificationStore'
 
 const AnecdoteList = () => {
     const {anecdotes, actions, filter} = useAnecdoteStore()
@@ -17,13 +18,18 @@ const AnecdoteList = () => {
     //sort by votes descending
     const sorted = filtered.toSorted((a, b) => b.votes - a.votes)
 
+    const handleVote = async (anecdote) => {
+        await actions.vote(anecdote.id)
+        showNotification(`Voted for: ${anecdote.content}`)
+    }
+
     return (
         <ul>
             {sorted.map( anecdote => (
                 <li key={anecdote.id}>
                     {anecdote.content} <br />
                     has {anecdote.votes} votes
-                    <button onClick={() => actions.vote(anecdote.id)}>vote</button>
+                    <button onClick={() => handleVote(anecdote)}>vote</button>
                 </li>
             ))}
         </ul>
