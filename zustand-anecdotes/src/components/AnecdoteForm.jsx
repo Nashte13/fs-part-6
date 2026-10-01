@@ -1,8 +1,12 @@
 import { useAnecdoteStore } from "../store";
-import showNotification from "../notificationStore";
+import {useNotificationStore} from "../notificationStore";
 
 const AnecdoteForm = () => {
   const { actions } = useAnecdoteStore();
+
+  const showNotification = useNotificationStore(
+    (state) => state.actions.showNotification
+  )
 
   const addAnecdote = async (e) => {
     e.preventDefault();
