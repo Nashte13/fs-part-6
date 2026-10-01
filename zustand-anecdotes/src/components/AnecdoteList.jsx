@@ -1,5 +1,5 @@
 import { useAnecdoteStore } from '../store'
-import showNotification from '../notificationStore'
+import {useNotificationStore} from '../notificationStore'
 
 const AnecdoteList = () => {
     const {anecdotes, actions, filter} = useAnecdoteStore()
@@ -17,6 +17,10 @@ const AnecdoteList = () => {
   
     //sort by votes descending
     const sorted = filtered.toSorted((a, b) => b.votes - a.votes)
+
+    const showNotification = useNotificationStore(
+      (state) => state.actions.showNotification,
+    );
 
     const handleVote = async (anecdote) => {
         await actions.vote(anecdote.id)
