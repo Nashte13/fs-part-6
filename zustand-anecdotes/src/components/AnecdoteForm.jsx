@@ -1,4 +1,5 @@
 import { useAnecdoteStore } from "../store";
+import showNotification from "../notificationStore";
 
 const AnecdoteForm = () => {
   const { actions } = useAnecdoteStore();
@@ -12,6 +13,7 @@ const AnecdoteForm = () => {
     }
 
     await actions.add(content);
+    showNotification(`Added: ${content}`)
     e.target.reset();
   };
 
