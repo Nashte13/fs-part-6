@@ -31,7 +31,7 @@ const createNew = async (content) => {
 
 const updateVote = async (id, votes) => {
     const response = await fetch(`${baseUrl}/${id}`, {
-        method: 'PUT',
+        method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
         },
