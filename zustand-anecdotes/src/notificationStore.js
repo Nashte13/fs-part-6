@@ -3,11 +3,11 @@ import { create } from "zustand";
 let timeoutId
 
 export const useNotificationStore = create((set) => ({
-    message: null,
+    notification: {message: null, type: null},
     actions: {
-        showNotification: (message) => {
+        showNotification: (message, type = 'success') => {
             clearTimeout(timeoutId)
-            set({ message })
+            set({ notification: {message, type} })
             
             timeoutId = setTimeout(() => {
                 set({message: null})
