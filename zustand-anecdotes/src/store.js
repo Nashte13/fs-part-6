@@ -12,7 +12,7 @@ export const useAnecdoteStore = create((set, get) => ({
 
         if (!anecdote) return
 
-        const updatedAnecdote = await anecdoteService.updatedVote(
+        const updatedAnecdote = await anecdoteService.updateVote(
           id,
           anecdote.votes + 1
         )
