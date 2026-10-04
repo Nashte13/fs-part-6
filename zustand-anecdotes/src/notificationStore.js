@@ -10,7 +10,7 @@ export const useNotificationStore = create((set) => ({
             set({ notification: {message, type} })
             
             timeoutId = setTimeout(() => {
-                set({message: null})
+                set({notification: {message: null, type: null}})
             }, 5000)
         },
     },
