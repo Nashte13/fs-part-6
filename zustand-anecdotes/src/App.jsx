@@ -19,13 +19,13 @@ const App = () => {
 
   return (
     <div>
-      <h1>Anecdote Voting</h1>
       <Notification />
+      <h1>Anecdote Voting</h1>
       <Filter />
       <AnecdoteList />
       <AnecdoteForm />
     </div>
-  )
+  );
 }
 
 export default App;

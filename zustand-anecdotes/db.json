@@ -48,6 +48,11 @@
       "content": "Logical thinking should be prioritised",
       "votes": 0,
       "id": "C9i7Znw_G_0"
+    },
+    {
+      "content": "Formula 1 is the best sport",
+      "votes": 0,
+      "id": "SlLw6xdgKNo"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
