@@ -7,11 +7,11 @@ const Notification = () => {
       marginBottom: 10,
     };
     
-    const message = useNotificationStore((state) => state.message)
+    const notification = useNotificationStore((state) => state.notification);
 
-    if (!message) return null
+    if (!notification.message) return null
 
-    return <Alert style={style}>{message} </Alert>;
+    return <Alert severity={notification.type} style={style}>{notification.message} </Alert>;
 };
 
 export default Notification;
