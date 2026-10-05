@@ -28,6 +28,11 @@ const AnecdoteList = () => {
         showNotification(`Voted for: ${anecdote.content}`)
     }
 
+    const deleteAnecdote = async (anecdote) => {
+        await actions.remove(anecdote.id)
+        showNotification(`Deleted anecdote: "${anecdote.content}"`)
+    }
+
     return (
         <ul>
             {sorted.map( anecdote => (
@@ -36,7 +41,7 @@ const AnecdoteList = () => {
                     has {anecdote.votes} votes
                     <button onClick={() => handleVote(anecdote)}>vote</button>
                     {anecdote.votes === 0 && (
-                        <button onClick={() => actions.remove(anecdote.id)}>
+                        <button onClick={() => deleteAnecdote(anecdote)}>
                             delete
                         </button>
                     )}
