@@ -33,6 +33,21 @@ export const useAnecdoteStore = create((set, get) => ({
       }));
     },
 
+    remove: async (id) => {
+      const anecdote = get().anecdotes.find(
+        (item) => String(item.id) === String(id)
+      )
+
+      if (!anecdote || anecdote.votes !== 0) return
+      await anecdoteService.remove(id)
+
+      set((state) => ({
+        anecdotes: state.anecdotes.filter(
+          (item) => String(item.id) !==String(id)
+        ),
+      }))
+    },
+
     setFilter: (filter) => set({ filter }),
   },
 }));
