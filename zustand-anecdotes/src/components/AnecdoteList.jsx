@@ -1,5 +1,6 @@
 import { useAnecdoteStore } from '../store'
 import {useNotificationStore} from '../notificationStore'
+import { Button } from '@mui/material'
 
 const AnecdoteList = () => {
     const {anecdotes, actions, filter} = useAnecdoteStore()
@@ -34,6 +35,11 @@ const AnecdoteList = () => {
                     {anecdote.content} <br />
                     has {anecdote.votes} votes
                     <button onClick={() => handleVote(anecdote)}>vote</button>
+                    {anecdote.votes === 0 && (
+                        <button onClick={() => actions.remove(anecdote.id)}>
+                            delete
+                        </button>
+                    )}
                 </li>
             ))}
         </ul>
