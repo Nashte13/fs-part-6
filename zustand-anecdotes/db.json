@@ -53,6 +53,11 @@
       "content": "Formula 1 is the best sport",
       "votes": 0,
       "id": "SlLw6xdgKNo"
+    },
+    {
+      "content": "Racing as a sport is developing rapidly",
+      "votes": 0,
+      "id": "0bW1ppN8DLw"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
