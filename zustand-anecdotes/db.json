@@ -41,13 +41,18 @@
     },
     {
       "content": "Formula 1 is the best sport",
-      "votes": 0,
+      "votes": 1,
       "id": "SlLw6xdgKNo"
     },
     {
       "content": "Racing as a sport is developing rapidly",
       "votes": 0,
       "id": "0bW1ppN8DLw"
+    },
+    {
+      "content": "Logical thinking should be prioritised",
+      "votes": 1,
+      "id": "hmF0tFgo9IM"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
