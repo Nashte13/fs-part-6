@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, item } from '@playwright/test';
 
 //function to fetch backend data
 async function fetchAnecdotes() {
@@ -21,7 +21,7 @@ test('Filter  works correctly', async ({ page }) => {
 test('Create adds new anecdote and persists', async ({ page }) => {
     await page.goto('/')
     const newText = 'Testing anecdotes with Playwright'
-    await page.fill('Input[name="anecdote]', newText)
+    await page.fill('input[name="anecdote]', newText)
     await page.click('button[type="submit"]')
     await expect(page.getByText(newText)).toBeVisible()
 
@@ -38,7 +38,7 @@ test('Vote increases count and persists', async ({ page }) => {
     const initialCount = parseInt(await page.locator('li', { hasText: anecdoteText }).getByText(/has \d+/).innerText().then(t => t.match(/\d+/)[0]))
 
     await voteButton.click()
-    await expect(page.locator('li', { hasText: anecdoteText }).getByText(`has ${initialCount + 1}`)).toBeVisible()
+    await expect(item).toContainText(`has ${initialCount + 1} votes`)
     
     const anecdotes = await fetchAnecdotes()
     const updated = anecdotes.find((a) => a.content === anecdoteText)
@@ -63,7 +63,7 @@ test('Notification appears after add or vote', async ({ page }) => {
     await page.goto('/')
 
     const newText = 'Notificaton test anecdote'
-    await page.fill('Input[name="anecdote"]', newText)
+    await page.fill('input[name="anecdote"]', newText)
     await page.click('button[type="submit"]')
 
     await expect(page.getByText(`Anecdote '${newText}' added`)).toBeVisible()
