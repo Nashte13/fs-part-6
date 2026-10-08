@@ -3,7 +3,7 @@
     {
       "id": "1",
       "content": "If it hurts, do it more often.",
-      "votes": 5
+      "votes": 8
     },
     {
       "votes": 2,
@@ -46,7 +46,7 @@
     },
     {
       "content": "Racing as a sport is developing rapidly",
-      "votes": 0,
+      "votes": 1,
       "id": "0bW1ppN8DLw"
     },
     {
@@ -56,18 +56,8 @@
     },
     {
       "content": "Notificaton test anecdote",
-      "votes": 0,
+      "votes": 1,
       "id": "5SORzeSf46k"
-    },
-    {
-      "content": "Notificaton test anecdote",
-      "votes": 0,
-      "id": "VzwE6V748yE"
-    },
-    {
-      "content": "Notificaton test anecdote",
-      "votes": 0,
-      "id": "dl6sAXbhZq4"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
