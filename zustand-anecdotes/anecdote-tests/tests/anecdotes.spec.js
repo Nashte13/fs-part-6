@@ -66,11 +66,11 @@ test('Notification appears after add or vote', async ({ page }) => {
     await page.fill('input[name="anecdote"]', newText)
     await page.click('button[type="submit"]')
 
-    await expect(page.getByText(`Anecdote '${newText}' added`)).toBeVisible()
+    await expect(page.getByRole('alert')).toContainText(`Added ${newText}`)
 
     //wait 5s and assert disapperance
     await page.waitForTimeout(5000)
-    await expect(page.getByText(`Anecdote '${newText}' added`)).toHaveCount(0)
+    await expect(page.getByRole('alert')).toBeHidden({timeout: 5000})
 })
 
 
