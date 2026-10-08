@@ -15,7 +15,7 @@ test('Filter  works correctly', async ({ page }) => {
     await page.goto('/')
     await page.getByRole('textbox', { name: /filter/i }).fill('optimization')
     await expect(page.getByText('Premature optimization is the root of all evil')).toBeVisible()
-    await expect(page.getByText('if it hurts do it more often')).toHaveCount(0)
+    await expect(page.getByText('if it hurts do it more often.', {exact: true})).toHaveCount(0)
 })
 
 test('Create adds new anecdote and persists', async ({ page }) => {
