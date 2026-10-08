@@ -59,4 +59,18 @@ test('Delete only allowed for zero-vote anecdotes', async ({ page }) => {
     expect(anecdotes.some(a => a.content.includes('console.log'))).toBeFalsy()
 })
 
+test('Notification appears after add or vote', async ({ page }) => {
+    await page.goto('/')
+
+    const newText = 'Notificaton test anecdote'
+    await page.fill('Input[name="anecdote"]', newText)
+    await page.click('button[type="submit"]')
+
+    await expect(page.getByText(`Anecdote '${newText}' added`)).toBeVisible()
+
+    //wait 5s and assert disapperance
+    await page.waitForTimeout(5000)
+    await expect(page.getByText(`Anecdote '${newText}' added`)).toHaveCount(0)
+})
+
 
