@@ -45,4 +45,18 @@ test('Vote increases count and persists', async ({ page }) => {
     expect(updated.votes).toBe(initialCount + 1)
 })
 
+test('Delete only allowed for zero-vote anecdotes', async ({ page }) => {
+    await page.goto('/')
+
+    //asume one anecdote has zero votes
+    const zeroVoteItem = page.locator('li', { hasText: 'Programming without an extremely heavy use of console.log' })
+    await expect(zeroVoteItem.getByRole('button', { name: 'delete' })).toBeVisible()
+    
+    await zeroVoteItem.getByRole('button', { name: 'delete' }).click()
+    await expect(zeroVoteItem).toHaveCount(0)
+
+    const anecdotes = await fetchAnecdotes()
+    expect(anecdotes.some(a => a.content.includes('console.log'))).toBeFalsy()
+})
+
 
