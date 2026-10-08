@@ -20,7 +20,7 @@ test('Filter  works correctly', async ({ page }) => {
 
 test('Create adds new anecdote and persists', async ({ page }) => {
     await page.goto('/')
-    const newText = 'Testing anecdotes with Playwright
+    const newText = 'Testing anecdotes with Playwright'
     await page.fill('Input[name="anecdote]', newText)
     await page.click('button[type="submit"]')
     await expect(page.getByText(newText)).toBeVisible()
