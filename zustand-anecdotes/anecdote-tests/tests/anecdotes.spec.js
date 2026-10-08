@@ -29,3 +29,20 @@ test('Create adds new anecdote and persists', async ({ page }) => {
     expect(anecdotes.some(a => a.content === newText)).toBeTruthy()
 })
 
+test('Vote increases count and persists', async ({ page }) => {
+    await page.goto('/')
+    const anecdoteText = 'If it hurts, do it more often'
+    const voteButton = page.locator('li', { hasText: anecdoteText }).getByRole('button', { name: 'vote' })
+    
+    //get initial count
+    const initialCount = parseInt(await page.locator('li', { hasText: anecdoteText }).getByText(/has \d+/).innerText().then(t => t.match(/\d+/)[0]))
+
+    await voteButton.click()
+    await expect(page.locator('li', { hasText: anecdoteText }).getByText(`has ${initialCount + 1}`)).toBeVisible()
+    
+    const anecdotes = await fetchAnecdotes()
+    const updated = anecdotes.find((a) => a.content === anecdoteText)
+    expect(updated.votes).toBe(initialCount + 1)
+})
+
+
