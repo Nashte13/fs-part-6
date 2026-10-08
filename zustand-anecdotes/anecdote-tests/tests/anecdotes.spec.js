@@ -8,7 +8,7 @@ async function fetchAnecdotes() {
 
 test('Initial loads shows seeded anecdote', async ({ page }) => {
     await page.goto('/')
-    await expect(page.getByAltText('If it hurts, do it more often')).toBeVisible()
+    await expect(page.getByText('If it hurts, do it more often')).toBeVisible()
 })
 
 test('Filter  works correctly', async ({ page }) => {
