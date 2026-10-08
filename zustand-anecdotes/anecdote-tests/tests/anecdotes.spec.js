@@ -17,3 +17,11 @@ test('Filter  works correctly', async ({ page }) => {
     await expect(page.getByText('Premature optimization is the root of all evil')).toBeVisible()
     await expect(page.getByText('if it hurts do it more often')).toHaveCount(0)
 })
+
+test('Create adds new anecdote and persists', async ({ page }) => {
+    await page.goto('/')
+    const newText = 'Testing anecdotes with Playwright
+    await page.fill('Input[name="anecdote]', newText)
+    await page.click('button[type="submit"]')
+    await expect(page.getByText(newText)).toBeVisible()
+})
