@@ -11,3 +11,9 @@ test('Initial loads shows seeded anecdote', async ({ page }) => {
     await expect(page.getByAltText('If it hurts, do it more often')).toBeVisible()
 })
 
+test('Filter  works correctly', async ({ page }) => {
+    await page.goto('/')
+    await page.getByRole('textbox', { name: /filter/i }).fill('optimization')
+    await expect(page.getByText('Premature optimization is the root of all evil')).toBeVisible()
+    await expect(page.getByText('if it hurts do it more often')).toHaveCount(0)
+})
