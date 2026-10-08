@@ -12,10 +12,13 @@ const Filter = () => {
     }
 
     return (
-        <div style={style}>
-            filter <input style={style} onChange={handleChange} />
-        </div>
-    )
+      <div style={style}>
+        filter{" "}
+        <label htmlFor="filter" id="filter">
+          <input style={style} onChange={handleChange} />
+        </label>
+      </div>
+    );
 }
 
 export default Filter

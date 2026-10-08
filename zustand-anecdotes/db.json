@@ -3,7 +3,7 @@
     {
       "id": "1",
       "content": "If it hurts, do it more often.",
-      "votes": 2
+      "votes": 5
     },
     {
       "votes": 2,
@@ -53,6 +53,21 @@
       "content": "Logical thinking should be prioritised",
       "votes": 1,
       "id": "hmF0tFgo9IM"
+    },
+    {
+      "content": "Notificaton test anecdote",
+      "votes": 0,
+      "id": "5SORzeSf46k"
+    },
+    {
+      "content": "Notificaton test anecdote",
+      "votes": 0,
+      "id": "VzwE6V748yE"
+    },
+    {
+      "content": "Notificaton test anecdote",
+      "votes": 0,
+      "id": "dl6sAXbhZq4"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
