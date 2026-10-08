@@ -24,4 +24,8 @@ test('Create adds new anecdote and persists', async ({ page }) => {
     await page.fill('Input[name="anecdote]', newText)
     await page.click('button[type="submit"]')
     await expect(page.getByText(newText)).toBeVisible()
+
+    const anecdotes = await fetchAnecdotes()
+    expect(anecdotes.some(a => a.content === newText)).toBeTruthy()
 })
+
