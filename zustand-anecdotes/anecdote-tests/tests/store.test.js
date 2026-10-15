@@ -1,8 +1,7 @@
 import { test, expect } from '@playwright/test';
-import { structuredClone } from 'node:worker_threads';
 
 const seed = [
-    { id: '1', content: 'Premature optimazation is the root of all evil.', votes: 2 },
+    { id: '1', content: 'Premature optimization is the root of all evil.', votes: 2 },
     { id: '2', content: 'If it hurts, do it more often.', votes: 0 },
     { id: '3', content: 'Adding manpower to a late project makes it later.', votes: 5 },
 ]
@@ -15,7 +14,7 @@ async function mockAnecdoteApi(page) {
         'access-control-allow-headers': 'Content-Type',
     }
 
-    await page.route("*/anecdotes**", async (route) => {
+    await page.route("**/anecdotes**", async (route) => {
       const request = route.request();
 
       if (request.method() === "OPTIONS") {
@@ -26,7 +25,7 @@ async function mockAnecdoteApi(page) {
         return route.fulfill({ json: records, headers: corsHeaders });
         }
         
-        if (request.method() === 'Patch') {
+        if (request.method() === 'PATCH') {
             const id = new URL(request.url()).pathname.split('/').pop()
             const record = records.find((item) => item.id === id)
             Object.assign(record, request.postDataJSON())
@@ -34,7 +33,7 @@ async function mockAnecdoteApi(page) {
             return route.fulfill({ json: record, headers: corsHeaders})
         }
 
-        return route.continue
+        return route.continue()
     })
     return records
 }
@@ -74,7 +73,7 @@ test('voting increases the anecdote vote count', async ({ page }) => {
     const records = await mockAnecdoteApi(page)
     await page.goto('/')
 
-    const item = page.getByRole('lisitem').filter({
+    const item = page.getByRole('listitem').filter({
         hasText: 'If it hurts, do it more often.',
     })
 
