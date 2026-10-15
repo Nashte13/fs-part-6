@@ -70,7 +70,19 @@ test('renders only anecdotes matching the filter', async ({ page }) => {
         .toHaveCount(0)
 })
 
-test('voting increases the anecdote')
+test('voting increases the anecdote vote count', async ({ page }) => {
+    const records = await mockAnecdoteApi(page)
+    await page.goto('/')
+
+    const item = page.getByRole('lisitem').filter({
+        hasText: 'If it hurts, do it more often.',
+    })
+
+    await item.getByRole('button', { name: 'vote' }).click()
+
+    await expect(item).toContainText('has 1 votes')
+    expect(records.find((anecdote) => anecdote.id === '2').votes).toBe(1)
+})
 
 
 
