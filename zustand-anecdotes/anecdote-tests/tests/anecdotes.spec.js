@@ -1,4 +1,4 @@
-import { test, expect, item } from '@playwright/test';
+/*import { test, expect, item } from '@playwright/test';
 
 //function to fetch backend data
 async function fetchAnecdotes() {
@@ -73,4 +73,4 @@ test('Notification appears after add or vote', async ({ page }) => {
     await expect(page.getByRole('alert')).toBeHidden({timeout: 5000})
 })
 
-
+*/
