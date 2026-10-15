@@ -39,5 +39,38 @@ async function mockAnecdoteApi(page) {
     return records
 }
 
+test('load anecdotes returned by the API', async ({ page }) => {
+    await mockAnecdoteApi(page)
+    await page.goto('/')
+
+    await expect(page.getByRole('listitem')).toHaveCount(3)
+    await expect(page.getByText('if it hurts, do it more often.', { exact: true }))
+        .toBeVisible()
+})
+
+test('renders anecdotes sorted by votes', async ({ page }) => {
+    await mockAnecdoteApi(page)
+    await page.goto('/')
+
+    const items = page.getByRole('listitem')
+    await expect(items.nth(0)).toContainText('Adding manpower')
+    await expect(items.nth(1)).toContainText('Premature optimization')
+    await expect(items.nth(2)).toContainText('If it hurts')
+})
+
+test('renders only anecdotes matching the filter', async ({ page }) => {
+    await mockAnecdoteApi(page)
+    await page.goto('/')
+
+    await page.locator('input').first().fill('optimiation')
+
+    await expect(page.getByRole('listitem')).toHaveCount(1)
+    await expect(page.getByText('Premature optimization')).toBeVisible()
+    await expect(page.getByText('If ot hurts, do it more often', { exact: true }))
+        .toHaveCount(0)
+})
+
+test('voting increases the anecdote')
+
 
 
