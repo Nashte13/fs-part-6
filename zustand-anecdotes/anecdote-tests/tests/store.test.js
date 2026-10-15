@@ -43,7 +43,7 @@ test('load anecdotes returned by the API', async ({ page }) => {
     await page.goto('/')
 
     await expect(page.getByRole('listitem')).toHaveCount(3)
-    await expect(page.getByText('if it hurts, do it more often.', { exact: true }))
+    await expect(page.getByText('If it hurts, do it more often.', { exact: true }))
         .toBeVisible()
 })
 
@@ -61,7 +61,7 @@ test('renders only anecdotes matching the filter', async ({ page }) => {
     await mockAnecdoteApi(page)
     await page.goto('/')
 
-    await page.locator('input').first().fill('optimiation')
+    await page.locator('input').first().fill('optimization')
 
     await expect(page.getByRole('listitem')).toHaveCount(1)
     await expect(page.getByText('Premature optimization')).toBeVisible()
