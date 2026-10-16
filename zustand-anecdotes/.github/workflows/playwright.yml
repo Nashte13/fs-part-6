@@ -2,23 +2,41 @@ name: Playwright tests
 
 on: [push, pull_request]
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      
+      - name: Install app dependecies
+        run: npm ci
 
-      - run: npm ci
+      - name: Build app
+        run: npm run build
 
-      - run: npm ci
+      - name: Install test dependecies
+        run: npm ci
         working-directory: anecdote-tests
 
-      - run: npx playwright install --with-deps chromium
-        working-directory: anecdote-tests
 
-      - run: npx playwright test
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
         working-directory: anecdote-tests
+      
+      - name: Upload Playwright reports
+          if: ${{ !cancelled() }}
+          uses: actions/upload-artifact@v4
+          with:
+            name: Playwright-report
+            path: |
+              anecdote-tests/playwright-report/
+              anecdote-tests/test-results/
+            retention-days: 14
