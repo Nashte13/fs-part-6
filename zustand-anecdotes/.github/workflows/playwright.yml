@@ -32,11 +32,11 @@ jobs:
         working-directory: anecdote-tests
       
       - name: Upload Playwright reports
-          if: ${{ !cancelled() }}
-          uses: actions/upload-artifact@v4
-          with:
-            name: Playwright-report
-            path: |
-              anecdote-tests/playwright-report/
-              anecdote-tests/test-results/
-            retention-days: 14
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: Playwright-report
+          path: |
+            anecdote-tests/playwright-report/
+            anecdote-tests/test-results/
+          retention-days: 14
