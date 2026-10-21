@@ -1,0 +1,33 @@
+const App = () => {
+  const addNote = async (event) => {
+    event.preventDefault();
+    const content = event.target.note.value
+    event.target.reset(
+      console.log(content)
+    )
+  }
+
+  const toggleImportance = (note) => {
+    console.log('Importance of'. note.id)
+  }
+
+  const notes = []
+
+
+  return (
+    <div>
+      <h2>Notes App</h2>
+      <form onSubmit={addNote}>
+        <input name="note" />
+        <button type="submit">add</button>
+      </form>
+      {notes.map((note) => (
+        <li key={note.id}>
+          {note.important ? <strong></strong>}
+        </li>
+      ))}
+    </div>
+  )
+}
+
+export default App;
