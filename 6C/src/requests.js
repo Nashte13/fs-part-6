@@ -24,14 +24,14 @@ export const createNote = async (newNote) => {
     return await response.json()
 }
 
-export const updateNote = async (updateNote) => {
+export const updateNote = async (updatedNote) => {
     const options = {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updateNote)
     }
 
-    const response = await fetch(`${baseUrl}/${updateNote.id}`, options)
+    const response = await fetch(`${baseUrl}/${updatedNote.id}`, options)
 
     if (!response.ok) {
         throw new Error('Failed to update note')
