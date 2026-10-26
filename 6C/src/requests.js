@@ -28,7 +28,7 @@ export const updateNote = async (updatedNote) => {
     const options = {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(updateNote)
+        body: JSON.stringify(updatedNote)
     }
 
     const response = await fetch(`${baseUrl}/${updatedNote.id}`, options)
