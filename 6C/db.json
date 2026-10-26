@@ -1,15 +1,20 @@
 {
-    "notes": [
-        {
-            "id": 1,
-            "content": "tanstack query is a powerful data-fetching library for React that simplifies the process of fetching, caching, and synchronizing server state in your application. It provides a set of hooks and utilities that make it easy to manage asynchronous data and keep your UI in sync with the server.",
-            "important": true
-        },
-
-        {
-            "id": 2,
-            "content": "React Query is a library that helps you manage server state in your React applications. It provides a set of hooks and utilities that make it easy to fetch, cache, and synchronize data from a server, while also handling loading and error states.",
-            "important": false
-        }
-    ]
+  "notes": [
+    {
+      "id": "1",
+      "content": "tanstack query is a powerful data-fetching library for React that simplifies the process of fetching, caching, and synchronizing server state in your application. It provides a set of hooks and utilities that make it easy to manage asynchronous data and keep your UI in sync with the server.",
+      "important": true
+    },
+    {
+      "id": "2",
+      "content": "React Query is a library that helps you manage server state in your React applications. It provides a set of hooks and utilities that make it easy to fetch, cache, and synchronize data from a server, while also handling loading and error states.",
+      "important": false
+    },
+    {
+      "content": "Racing is the best sport",
+      "important": true,
+      "id": "CBJ3E_QI_gA"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
