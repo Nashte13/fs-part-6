@@ -10,14 +10,10 @@ const App = () => {
     addNoteToServer(content)
   }
 
-
-  console.log(JSON.parse(JSON.stringify(result)))
-  if (result.isPending) {
-    return <div>loading data...
-    </div>
+  if (isPending) {
+    return <div>loading data...</div>
   }
 
-  const notes = result.data
 
 
   return (
