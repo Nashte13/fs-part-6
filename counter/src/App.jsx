@@ -5,10 +5,10 @@ const App = () => {
 
   return (
     <div>
-      <CounterContext>
+      <CounterContext.Provider>
         <Panel />
         <Footer />
-      </CounterContext>
+      </CounterContext.Provider>
     </div>
   );
 }
