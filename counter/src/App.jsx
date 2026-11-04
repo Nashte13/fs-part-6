@@ -1,14 +1,16 @@
 import Navbar from './components/Navbar'
-import Panel from './components/Panel'
+import CounterContext from './CounterContext'
 
 const App = () => {
 
   return (
     <div>
-      <Navbar />
-      <Panel />
+      <CounterContext>
+        <Panel />
+        <Footer />
+      </CounterContext>
     </div>
-  )
+  );
 }
 
 export default App
