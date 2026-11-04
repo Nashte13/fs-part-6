@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar'
 import CounterContext from './CounterContext'
+import { useState } from 'react'
 
 const App = () => {
 
