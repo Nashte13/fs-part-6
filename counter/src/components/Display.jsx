@@ -1,4 +1,4 @@
-const Display = () => {
+const Display = ({counter}) => {
     return (
         <div>
             {counter}
