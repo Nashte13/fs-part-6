@@ -1,11 +1,10 @@
-import CounterContext from './CounterContext'
-import { useState } from 'react'
-import Panel from './components/Panel'
-import Footer from './components/Footer'
+import CounterContext from "./components/CounterContext";
+import { useState } from "react";
+import Panel from "./components/Panel";
+import Footer from "./components/Footer";
 
 const App = () => {
-
-  const [counter, setCounter] = useState(0)
+  const [counter, setCounter] = useState(0);
 
   return (
     <div>
@@ -15,6 +14,6 @@ const App = () => {
       </CounterContext.Provider>
     </div>
   );
-}
+};
 
-export default App
+export default App;
