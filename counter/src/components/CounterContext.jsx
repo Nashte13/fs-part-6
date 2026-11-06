@@ -12,7 +12,7 @@ export const CounterContextProvider = (props) => {
     const zero = () => setCounter(0)
 
     return (
-        <CounterContext.Provider value={{ counter, setCounter }}>
+        <CounterContext.Provider value={{ counter, increment, decrement, zero }}>
             {props.children}
         </CounterContext.Provider>
     )
