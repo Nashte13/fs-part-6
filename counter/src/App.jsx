@@ -1,4 +1,3 @@
-import Navbar from './components/Navbar'
 import CounterContext from './CounterContext'
 import { useState } from 'react'
 import Panel from './components/Panel'
