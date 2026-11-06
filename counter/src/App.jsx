@@ -1,17 +1,13 @@
-import CounterContext from "./components/CounterContext";
-import { useState } from "react";
 import Panel from "./components/Panel";
 import Footer from "./components/Footer";
 
 const App = () => {
-  const [counter, setCounter] = useState(0);
 
   return (
     <div>
-      <CounterContext.Provider value={{ counter, setCounter }}>
-        <Panel />
-        <Footer />
-      </CounterContext.Provider>
+      <Panel />
+      <Panel />
+      <Footer />
     </div>
   );
 };
