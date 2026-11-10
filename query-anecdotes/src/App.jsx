@@ -1,5 +1,5 @@
-import { useQuery } from '@tanstack/react-query'
-import getAnecdotes from './requests'
+import { useQuery, useMutation } from '@tanstack/react-query'
+import { getAnecdotes, createAnecdote} from './requests'
 
 import AnecdoteForm from './components/AnecdoteForm'
 import Notification from './components/Notification'
@@ -8,6 +8,17 @@ const App = () => {
   const handleVote = (anecdote) => {
     console.log('vote')
 
+  }
+
+  const newAnecdoteMutation = useMutation({
+    mutationFn: createAnecdote,
+  })
+
+  const addAnecdote = async (event) => {
+    event.preventDefault()
+    const content = event.target.note.value
+    event.target.reset()
+    newAnecdoteMutation.mutate({ content, votes: 0})
   }
 
   const result = useQuery({
