@@ -32,7 +32,7 @@ export const updateVotes = async (updatedAnecdote) => {
         body: JSON.stringify(updatedAnecdote)
     }
 
-    csont response = await fetch(`${baseUrl}/${updatedAnecdote.id}`, options)
+    const response = await fetch(`${baseUrl}/${updatedAnecdote.id}`, options)
 
     if (!response.ok) {
         throw new Error("Failed to update votes");
