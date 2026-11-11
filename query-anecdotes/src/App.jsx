@@ -24,9 +24,10 @@ const App = () => {
 
   const addAnecdote = async (event) => {
     event.preventDefault()
-    const content = event.target.anecdote.value
-    event.target.reset()
-    newAnecdoteMutation.mutate({ content, votes: 0})
+    const content = event.currentTarget.anecdote.value
+    
+    newAnecdoteMutation.mutate({ content, votes: 0 })
+    event.target.reset();
   }
 
   const result = useQuery({
@@ -53,7 +54,7 @@ const App = () => {
       <h3>Anecdote app</h3>
 
       <Notification />
-      <AnecdoteForm />
+      <AnecdoteForm onCreate={addAnecdote} />
 
       {anecdotes.map((anecdote) => (
         <div key={anecdote.id}>
