@@ -24,7 +24,7 @@ const App = () => {
 
   const addAnecdote = async (event) => {
     event.preventDefault()
-    const content = event.target.note.value
+    const content = event.target.anecdote.value
     event.target.reset()
     newAnecdoteMutation.mutate({ content, votes: 0})
   }
